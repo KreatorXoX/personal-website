@@ -5,7 +5,12 @@ type Props = {};
 
 const About = (props: Props) => {
   return (
-    <div className="flex flex-col justify-evenly md:flex-row relative text-center md:text-left max-w-7xl px-8 mx-auto items-center h-screen gap-10">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.75 }}
+      className="flex flex-col justify-evenly md:flex-row relative text-center md:text-left max-w-7xl px-8 mx-auto items-center h-screen md:gap-10"
+    >
       <h3 className="absolute top-24 uppercase tracking-[1.5rem] text-gray-400 text-2xl">
         About
       </h3>
@@ -40,7 +45,7 @@ const About = (props: Props) => {
           necessitatibus facere
         </p>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
