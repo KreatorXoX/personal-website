@@ -7,3 +7,51 @@
     @apply uppercase text-sm text-gray-400 tracking-widest md:tracking-[11px] transition-all duration-500 px-6 py-2 rounded-full hover:shadow-md hover:shadow-[#4E9F3D] hover:text-gray-700;
   }
 }
+
+.card {
+  cursor: pointer;
+  z-index: 0;
+  opacity: 0;
+  transition: 500ms;
+
+  left: 0;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
+  top: 25%;
+}
+.card--active {
+  opacity: 1;
+  transform: scale(1);
+  z-index: 99;
+}
+
+.card--left {
+  transform: translateX(-102%) scale(0.95);
+  transition: 500ms;
+  opacity: 0.75;
+}
+
+.card--right {
+  transform: translateX(102%) scale(0.95);
+  transition: 500ms;
+  opacity: 0.75;
+}
+
+@media (max-width: 1023px) {
+  .card {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    transition: 500ms;
+  }
+
+  .card--right {
+    opacity: 0;
+    transform: translate(120%, -50%);
+  }
+  .card--left {
+    opacity: 0;
+    transform: translate(-120%, -50%);
+  }
+}
