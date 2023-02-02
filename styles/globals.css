@@ -8,6 +8,14 @@
   }
 }
 
+.skill:hover {
+  transform: rotateY(180deg);
+  transform-style: preserve-3d;
+}
+.skill-back {
+  transform: rotateY(180deg);
+}
+
 .card {
   cursor: pointer;
   z-index: 0;
@@ -27,15 +35,15 @@
 }
 
 .card--left {
-  transform: translateX(-102%) scale(0.95);
+  transform: translateX(-102%) scale(0.92);
   transition: 500ms;
-  opacity: 0.75;
+  opacity: 0.55;
 }
 
 .card--right {
-  transform: translateX(102%) scale(0.95);
+  transform: translateX(102%) scale(0.92);
   transition: 500ms;
-  opacity: 0.75;
+  opacity: 0.55;
 }
 
 @media (max-width: 1023px) {

@@ -49,7 +49,7 @@ const Hero = (props: Props) => {
       "#KeepCoding",
     ],
     loop: 1,
-    delaySpeed: 3000,
+    delaySpeed: 2000,
     typeSpeed: 100,
     deleteSpeed: 30,
   });
