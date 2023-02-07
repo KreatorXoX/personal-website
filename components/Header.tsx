@@ -15,16 +15,25 @@ const Header = (props: Props) => {
         className="flex flex-row gap-5 items-center"
       >
         <Link href="https://github.com/KreatorXoX">
-          <SiGithub size={"2rem"} color="rgb(156 163 175)" />
+          <SiGithub className="text-xl md:text-3xl" color="rgb(156 163 175)" />
         </Link>
         <Link href="https://angel.co/u/gorkem-gocer">
-          <SiAngellist size={"2rem"} color="rgb(156 163 175)" />
+          <SiAngellist
+            className="text-xl md:text-3xl"
+            color="rgb(156 163 175)"
+          />
         </Link>
         <Link href="https://www.codewars.com/users/Kreatorxox">
-          <SiCodewars size={"2rem"} color="rgb(156 163 175)" />
+          <SiCodewars
+            className="text-xl md:text-3xl"
+            color="rgb(156 163 175)"
+          />
         </Link>
         <Link href="https://leetcode.com/kreatorxox/">
-          <SiLeetcode size={"2rem"} color="rgb(156 163 175)" />
+          <SiLeetcode
+            className="text-xl md:text-3xl"
+            color="rgb(156 163 175)"
+          />
         </Link>
       </motion.div>
       <motion.div
@@ -36,7 +45,10 @@ const Header = (props: Props) => {
           href="mailto:gorkemgocer7@gmail.com"
           className="flex flex-row gap-2 items-center"
         >
-          <AiOutlineMail size={"2rem"} color="rgb(156 163 175)" />
+          <AiOutlineMail
+            className="text-xl md:text-3xl"
+            color="rgb(156 163 175)"
+          />
           <p className="uppercase hidden md:inline-flex text-sm text-gray-400 ">
             get in touch
           </p>

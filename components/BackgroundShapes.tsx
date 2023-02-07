@@ -5,7 +5,7 @@ type Props = {};
 const BackgroundShapes = (props: Props) => {
   return (
     <div className="absolute top-[35%]">
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0.25 }}
         animate={{ opacity: 0 }}
         transition={{ duration: 1.75 }}
@@ -26,14 +26,14 @@ const BackgroundShapes = (props: Props) => {
           <div className="absolute rounded-full h-[35rem] w-[35rem] border border-[#FF7F00]" />
           <div className="absolute rounded-full h-[40rem] w-[40rem] border border-[#FF0000]" />
         </div>
-      </motion.div>
+      </motion.div> */}
       <motion.div
         initial={{ opacity: 0, scale: 0 }}
         animate={{
           opacity: [0, 1, 0.5, 1, 0, 0.1, 0.15],
           scale: [0.5, 1, 0.75, 2, 0, 0, 0, 1],
         }}
-        transition={{ duration: 3, delay: 1.75 }}
+        transition={{ duration: 3 }}
       >
         <div className="relative flex justify-center items-center  mt-14">
           <div className="absolute rounded-full h-[25rem] w-[25rem] border border-[#262726]" />
