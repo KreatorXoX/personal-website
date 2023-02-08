@@ -34,7 +34,7 @@ const Carousel = (props: Props) => {
           if (idx === selectedIdx) className = "card card--active";
           else if (idx === rightIdx) className = "card card--right";
           else if (idx === leftIdx) className = "card card--left";
-          else className = "card";
+          // else className = "card";
 
           return (
             <CarouselItem classes={className} key={idx} {...card} idx={idx} />

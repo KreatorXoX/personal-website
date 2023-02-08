@@ -21,6 +21,7 @@
 .form--input:focus {
   color: rgb(229 231 235);
   background-color: rgb(107 114 128);
+  border-bottom: 1px solid rgb(187 247 208);
 }
 
 .skill:hover {
@@ -37,11 +38,15 @@
   opacity: 0;
   transition: 500ms;
 
+  /* left: 0; */
+  /* right: 0; */
+  /* margin-left: auto;
+  margin-right: auto; */
+  /* top: 25%; */
+  top: 25%;
   left: 0;
   right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  top: 25%;
+  margin: auto;
 }
 .card--active {
   opacity: 1;
@@ -67,6 +72,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     transition: 500ms;
+    margin: 0;
   }
 
   .card--right {

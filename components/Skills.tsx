@@ -1,10 +1,16 @@
 import React from "react";
+import { motion } from "framer-motion";
 import Skill from "./Skill";
 type Props = {};
 
 const Skills = (props: Props) => {
   return (
-    <div className="h-screen flex flex-col md:flex-row max-w-full px-10 justify-center items-center mx-auto relative">
+    <motion.div
+      initial={{ opacity: 0 }}
+      whileInView={{ opacity: 1 }}
+      transition={{ duration: 1.75 }}
+      className="h-screen flex flex-col md:flex-row max-w-7xl px-10 justify-center items-center mx-auto relative"
+    >
       <h3 className="absolute top-24 uppercase tracking-[14px] text-gray-400 md:text-2xl ">
         Skills
       </h3>
@@ -13,7 +19,7 @@ const Skills = (props: Props) => {
         Hover The Icons
       </h3>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-10 ">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-10">
         <Skill lefty />
         <Skill lefty />
         <Skill lefty />
@@ -27,7 +33,7 @@ const Skills = (props: Props) => {
         <Skill lefty />
         <Skill lefty />
       </div>
-    </div>
+    </motion.div>
   );
 };
 
