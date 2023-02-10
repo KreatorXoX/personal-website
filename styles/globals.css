@@ -24,14 +24,30 @@
   border-bottom: 1px solid rgb(187 247 208);
 }
 
+.skill {
+  transform-style: preserve-3d;
+  transition: 0.75s ease;
+}
 .skill:hover {
   transform: rotateY(180deg);
-  transform-style: preserve-3d;
 }
+.skill-front,
 .skill-back {
   transform: rotateY(180deg);
 }
-
+.skill-front {
+  transform: rotateY(0);
+  z-index: 1;
+  backface-visibility: hidden;
+}
+.skill-back {
+  z-index: 10;
+  opacity: 0;
+  transition: 0.5s ease-in-out;
+}
+.skill-back:hover {
+  opacity: 1;
+}
 .card {
   cursor: pointer;
   z-index: 0;

@@ -33,7 +33,7 @@ const About = (props: Props) => {
           </span>{" "}
           Me
         </h4>
-        <p className="pt-5 text-xs md:text-md text-gray-400">
+        <p className="pt-5 text-xs md:text-lg text-gray-400">
           Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eligendi
           aliquam, quidem dolorum porro illum beatae saepe sunt, iure aspernatur
           blanditiis ea totam neque nam laudantium excepturi est mollitia.

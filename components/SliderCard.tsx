@@ -7,7 +7,7 @@ const SliderCard = (props: Props) => {
   return (
     <article
       className="bg-[#202120] py-5 mt-20 text-white w-[250px] sm:w-[350px] md:w-[450px] xl:w-[700px] flex flex-shrink-0 flex-col items-center rounded-lg space-y-6 snap-center
-    opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-400 h-[400px] md:h-[600px] overflow-y-scroll
+    opacity-50 hover:opacity-100 cursor-pointer transition-opacity duration-400 h-[450px] md:h-[600px] overflow-y-scroll
     "
     >
       <motion.img
@@ -15,7 +15,7 @@ const SliderCard = (props: Props) => {
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: false }}
         transition={{ duration: 0.75 }}
-        className=" h-24 w-24 sm:h-32 sm:w-32 md:h-36 md:w-36 xl:h-40 xl:w-40 mt-4 rounded-full object-cover object-center"
+        className=" h-12 w-12 sm:h-24 sm:w-24 md:h-30 md:w-30 xl:h-40 xl:w-40 mt-4 rounded-full object-cover object-center"
         src="https://res.cloudinary.com/dinhhwb9x/image/upload/v1675098548/busLogo_asm9hj.png"
       />
       <div className="px-0 md:px-8 space-y-4 text-center md:text-left">

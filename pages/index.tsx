@@ -2,7 +2,7 @@ import Header from "@/components/Header";
 import Head from "next/head";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
-import Experience from "@/components/Experience";
+
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
@@ -11,7 +11,11 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <div className="relative snap-y snap-mandatory scroll-smooth h-screen overflow-scroll bg-[#191A19] z-5">
+    <div
+      className="relative snap-y snap-mandatory scroll-smooth h-screen overflow-y-scroll overflow-x-hidden bg-[#191A19] z-5
+     scrollbar-thin scrollbar-track-green-200/20 scrollbar-thumb-[#CF2400]/70 scrollbar-thumb-rounded-full
+    "
+    >
       <Head>
         <title>Gorkem Gocer</title>
         <link rel="icon" href="/favicon.ico" />
@@ -29,9 +33,9 @@ export default function Home() {
         <About />
       </section>
 
-      {/* experience */}
-      <section id="exp" className="snap-center ">
-        <Experience />
+      {/* Skills */}
+      <section id="skills" className="snap-center ">
+        <Skills />
       </section>
 
       {/* Projects */}
@@ -39,16 +43,14 @@ export default function Home() {
         <Projects />
       </section>
 
-      {/* Skills */}
-      <section id="skills" className="snap-center ">
-        <Skills />
-      </section>
       {/* Contact */}
       <section id="contact" className="snap-end ">
         <ContactMe />
       </section>
       <Link href="#hero">
-        <HeroButton />
+        <footer className="sticky bottom-4 z-20">
+          <HeroButton />
+        </footer>
       </Link>
     </div>
   );

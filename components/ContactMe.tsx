@@ -54,7 +54,7 @@ const ContactMe = (props: Props) => {
       <h3 className="absolute top-24 uppercase tracking-[14px] text-gray-400 md:text-2xl ">
         Contact me
       </h3>
-      <div className="flex flex-col w-full md:items-center md:flex-row text-center md:gap-10 gap-4 text-gray-300 md:text-xl">
+      <div className="flex flex-col w-full md:items-center md:flex-row text-center gap-10 text-gray-300 md:text-xl">
         <div className="flex flex-col space-y-4 md:space-y-8 w-full mt-10 sm:mt-0">
           <div className="font-bold hidden md:inline-block md:text-4xl text-left space-y-4">
             <h2>Let{`'`}s Talk!</h2>

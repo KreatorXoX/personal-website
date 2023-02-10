@@ -6,8 +6,8 @@ type Props = {};
 const HeroButton = (props: Props) => {
   return (
     <div
-      className=" text-2xl sticky bottom-4 z-20 w-12 h-12 rounded-full bg-[orange]/20 text-green-200 mx-auto flex items-center justify-center
-    hover:bg-[orange]/40 cursor-pointer
+      className=" text-2xl w-12 h-12 rounded-full bg-[orange]/20 text-green-200 mx-auto flex items-center justify-center
+    hover:bg-[orange]/40 cursor-pointer filter grayscale hover:grayscale-0 transition-colors duration-300
     "
     >
       𝔊𝔤

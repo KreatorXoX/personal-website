@@ -19,7 +19,7 @@ const Skills = (props: Props) => {
         Hover The Icons
       </h3>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-10">
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-12">
         <Skill lefty />
         <Skill lefty />
         <Skill lefty />

@@ -2,6 +2,7 @@ import { useEffect } from "react";
 import CarouselItem from "./CarouselItem";
 import { data } from "./data";
 import { useCarousel } from "@/context/carousel-ctx";
+
 interface Props {}
 
 const Carousel = (props: Props) => {
@@ -34,7 +35,7 @@ const Carousel = (props: Props) => {
           if (idx === selectedIdx) className = "card card--active";
           else if (idx === rightIdx) className = "card card--right";
           else if (idx === leftIdx) className = "card card--left";
-          // else className = "card";
+          else className = "card";
 
           return (
             <CarouselItem classes={className} key={idx} {...card} idx={idx} />
@@ -42,7 +43,7 @@ const Carousel = (props: Props) => {
         })}
         <div
           className="absolute lg:hidden  flex flex-row gap-16
-          bottom-0 left-[50%] transform -translate-x-[50%] -translate-y-32 md:-translate-y-[100%]
+          bottom-0 left-[50%] transform -translate-x-[50%] -translate-y-24 md:-translate-y-[100%]
         "
         >
           <button
