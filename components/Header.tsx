@@ -1,11 +1,20 @@
 import React from "react";
-import { SiCodewars, SiLeetcode, SiGithub, SiAngellist } from "react-icons/si";
+import {
+  SiCodewars,
+  SiLeetcode,
+  SiGithub,
+  SiAngellist,
+  SiChainlink,
+} from "react-icons/si";
 import { AiOutlineMail } from "react-icons/ai";
 import { motion } from "framer-motion";
 import Link from "next/link";
-type Props = {};
+import { Social } from "@/typings";
+type Props = {
+  socials: Social[];
+};
 
-const Header = (props: Props) => {
+const Header = ({ socials }: Props) => {
   return (
     <header className="sticky top-0 z-20 flex flex-row justify-between max-w-7xl px-10 py-6 mx-auto">
       <motion.div
@@ -14,27 +23,36 @@ const Header = (props: Props) => {
         transition={{ duration: 1.25, delay: 3 }}
         className="flex flex-row gap-5 items-center"
       >
-        <Link href="https://github.com/KreatorXoX">
-          <SiGithub className="text-xl md:text-3xl" color="rgb(156 163 175)" />
-        </Link>
-        <Link href="https://angel.co/u/gorkem-gocer">
-          <SiAngellist
-            className="text-xl md:text-3xl"
-            color="rgb(156 163 175)"
-          />
-        </Link>
-        <Link href="https://www.codewars.com/users/Kreatorxox">
-          <SiCodewars
-            className="text-xl md:text-3xl"
-            color="rgb(156 163 175)"
-          />
-        </Link>
-        <Link href="https://leetcode.com/kreatorxox/">
-          <SiLeetcode
-            className="text-xl md:text-3xl"
-            color="rgb(156 163 175)"
-          />
-        </Link>
+        {socials.map((social) => (
+          <Link href={`${social.socialUrl}`} key={`${social._id}`}>
+            {social.socialName === "Github" ? (
+              <SiGithub
+                className="text-xl md:text-3xl"
+                color="rgb(156 163 175)"
+              />
+            ) : social.socialName === "CodeWars" ? (
+              <SiCodewars
+                className="text-xl md:text-3xl"
+                color="rgb(156 163 175)"
+              />
+            ) : social.socialName === "AngelCo" ? (
+              <SiAngellist
+                className="text-xl md:text-3xl"
+                color="rgb(156 163 175)"
+              />
+            ) : social.socialName === "LeetCode" ? (
+              <SiLeetcode
+                className="text-xl md:text-3xl"
+                color="rgb(156 163 175)"
+              />
+            ) : (
+              <SiChainlink
+                className="text-xl md:text-3xl"
+                color="rgb(156 163 175)"
+              />
+            )}
+          </Link>
+        ))}
       </motion.div>
       <motion.div
         initial={{ opacity: 0, scale: 0, x: 200 }}

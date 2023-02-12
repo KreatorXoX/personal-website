@@ -13,7 +13,9 @@ const CarouselItem = (props: Props) => {
     <div
       onClick={() => setSelectedIdx(props.idx)}
       className={`${props.classes} bg-[#202120] text-gray-300 p-4 md:py-4 rounded-md flex flex-col items-center space-y-8
-    absolute  h-[25rem] md:h-[30rem] lg:h-[35rem] w-full max-w-[20rem] overflow-y-scroll overflow-x-hidden`}
+    absolute  h-[25rem] md:h-[30rem] lg:h-[35rem] w-full max-w-[20rem] overflow-y-scroll overflow-x-hidden
+    scrollbar-thin scrollbar-track-green-200/20 scrollbar-thumb-[#CF2400]/70 scrollbar-thumb-rounded-full
+    `}
     >
       {/* <h3 className="text-[#CF2400] tracking-widest text-lg md:text-3xl">
         {props.title}

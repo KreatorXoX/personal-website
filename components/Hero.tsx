@@ -3,17 +3,20 @@ import { useTypewriter, Cursor } from "react-simple-typewriter";
 import BackgroundShapes from "./BackgroundShapes";
 import Image from "next/image";
 import Link from "next/link";
+import { PageInfo } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  pageInfo: PageInfo;
+};
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let iterations = -40;
 
-const Hero = (props: Props) => {
-  const [originalText, setOriginalText] =
-    useState<string>("Software Developer");
+const Hero = ({ pageInfo }: Props) => {
+  const [originalText, setOriginalText] = useState<string>(`${pageInfo.role}`);
   const [mashedWords, setMashedWords] = useState<string>("");
-
+  console.log(pageInfo);
   const mashWords = useCallback(
     (text: string): string => {
       return text
@@ -39,15 +42,8 @@ const Hero = (props: Props) => {
     return () => clearInterval(interval);
   }, [mashWords, originalText]);
 
-  let initialText = "";
   const [text] = useTypewriter({
-    words: [
-      "Hi, The Name's Gorkem !",
-      "Guy who loves cooking.js",
-      "chess.ts, coffee.cs",
-      "and <Coding/> the MOST !",
-      "#KeepCoding",
-    ],
+    words: pageInfo.typewriterInfo.typeInfo,
     loop: 1,
     delaySpeed: 2000,
     typeSpeed: 100,
@@ -63,7 +59,7 @@ const Hero = (props: Props) => {
         width={208}
         height={208}
         alt="first-image"
-        src="https://res.cloudinary.com/dinhhwb9x/image/upload/v1674925424/DSC_0574_bruhxz.jpg"
+        src={urlFor(pageInfo?.heroImage).url()}
       />
       <div className="flex flex-col gap-4">
         <h2 className="text-sm md:text-lg uppercase text-gray-400 py-3 tracking-[11px] md:tracking-[20px]">

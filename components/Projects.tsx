@@ -9,7 +9,7 @@ const Projects = (props: Props) => {
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 1.75 }}
-      className="h-screen flex flex-col md:flex-row w-full overflow-x-hidden px-10 justify-center items-center mx-auto relative overflow-y-scroll"
+      className="h-screen flex flex-col md:flex-row w-full overflow-hidden px-10 justify-center items-center mx-auto relative"
     >
       <div className="w-full absolute top-[35%] bg-[#1d2a19] left-0 h-[300px] skew-y-12 -z-20"></div>
       <div className="w-full absolute top-[35%] bg-[#1d2a19] left-0 h-[300px] -skew-y-12 -z-20"></div>

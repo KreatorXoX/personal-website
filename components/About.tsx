@@ -1,9 +1,14 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Image } from "@/typings";
+import { urlFor } from "@/sanity";
 
-type Props = {};
+type Props = {
+  image: Image;
+  about: string;
+};
 
-const About = (props: Props) => {
+const About = ({ image, about }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -22,7 +27,7 @@ const About = (props: Props) => {
         viewport={{ once: true }}
         transition={{ duration: 1.25 }}
         alt="second-image"
-        src="https://res.cloudinary.com/dinhhwb9x/image/upload/v1674925424/DSC_0574_bruhxz.jpg"
+        src={urlFor(image).url()}
       />
 
       <div className="sm:space-y-10">
@@ -33,17 +38,7 @@ const About = (props: Props) => {
           </span>{" "}
           Me
         </h4>
-        <p className="pt-5 text-xs md:text-lg text-gray-400">
-          Lorem ipsum dolor, sit amet consectetur adipisicing elit. Qui eligendi
-          aliquam, quidem dolorum porro illum beatae saepe sunt, iure aspernatur
-          blanditiis ea totam neque nam laudantium excepturi est mollitia.
-          Ipsum? Quia maiores quod a eos voluptatum. Facilis aliquam ipsa dicta
-          corporis consequuntur dolor, tenetur mollitia illo maxime
-          necessitatibus facere neque nam laudantium excepturi est mollitia.
-          Ipsum? Quia maiores quod a eos voluptatum. Facilis aliquam ipsa dicta
-          corporis consequuntur dolor, tenetur mollitia illo maxime
-          necessitatibus facere
-        </p>
+        <p className="pt-5 text-xs md:text-lg text-gray-400">{about}</p>
       </div>
     </motion.div>
   );

@@ -21,8 +21,8 @@ export default defineType({
     defineField({
       name: 'typewriterInfo',
       title: 'TypewriterInfo',
-      type: 'array',
-      of: [{type: 'reference', to: {type: 'typewriter'}}],
+      type: 'reference',
+      to: [{type: 'typewriter'}],
     }),
     defineField({
       name: 'profileImage',

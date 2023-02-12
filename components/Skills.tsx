@@ -1,9 +1,12 @@
 import React from "react";
 import { motion } from "framer-motion";
-import Skill from "./Skill";
-type Props = {};
+import SkillItem from "./Skill";
+import { Skill } from "@/typings";
+type Props = {
+  skills: Skill[];
+};
 
-const Skills = (props: Props) => {
+const Skills = ({ skills }: Props) => {
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -15,23 +18,26 @@ const Skills = (props: Props) => {
         Skills
       </h3>
 
-      <h3 className="absolute top-40 text-sm uppercase tracking-[10px] text-gray-500 ">
+      <h3 className="absolute top-36 text-sm uppercase tracking-[10px] text-gray-500 ">
         Hover The Icons
       </h3>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-8 mt-12">
-        <Skill lefty />
-        <Skill lefty />
-        <Skill lefty />
-        <Skill lefty />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill />
-        <Skill lefty />
-        <Skill lefty />
-        <Skill lefty />
-        <Skill lefty />
+      <div className="grid grid-cols-3 md:grid-cols-4 gap-10 md:gap-20 mt-12">
+        {skills.map((skill, idx) => (
+          <SkillItem key={skill._id} lefty={idx % 2 === 0} skill={skill} />
+        ))}
+        {/* <SkillItem lefty />
+        <SkillItem lefty />
+        <SkillItem lefty />
+        <SkillItem lefty />
+        <SkillItem />
+        <SkillItem />
+        <SkillItem />
+        <SkillItem />
+        <SkillItem lefty />
+        <SkillItem lefty />
+        <SkillItem lefty />
+        <SkillItem lefty /> */}
       </div>
     </motion.div>
   );
