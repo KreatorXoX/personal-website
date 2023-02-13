@@ -1,18 +1,21 @@
 import React, { useEffect } from "react";
 import { motion } from "framer-motion";
-import { GrMail } from "react-icons/gr";
-import { ImLocation } from "react-icons/im";
 import emailjs from "@emailjs/browser";
 import { useForm, SubmitHandler } from "react-hook-form";
+import { GrMail } from "react-icons/gr";
+import { ImLocation } from "react-icons/im";
 
 type Inputs = {
   name: string;
   email: string;
   message: string;
 };
-type Props = {};
+type Props = {
+  contactEmail: string;
+  contactAddress: string;
+};
 
-const ContactMe = (props: Props) => {
+const ContactMe = ({ contactAddress, contactEmail }: Props) => {
   const {
     register,
     handleSubmit,
@@ -35,7 +38,6 @@ const ContactMe = (props: Props) => {
         process.env.NEXT_PUBLIC_EMAILJS_API_KEY
       );
     }
-    console.log("no data");
     return;
   };
 
@@ -55,10 +57,15 @@ const ContactMe = (props: Props) => {
         Contact me
       </h3>
       <div className="flex flex-col w-full md:items-center md:flex-row text-center gap-10 text-gray-300 md:text-xl">
-        <div className="flex flex-col space-y-4 md:space-y-8 w-full mt-10 sm:mt-0">
+        <motion.div
+          initial={{ opacity: 0, x: -100 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          transition={{ duration: 1 }}
+          className="flex flex-col space-y-4 md:space-y-8 w-full mt-10 sm:mt-0"
+        >
           <div className="font-bold hidden md:inline-block md:text-4xl text-left space-y-4">
-            <h2>Let{`'`}s Talk!</h2>
-            <h2>Tell me about your projects.</h2>
+            <h2 className="rainbowText">Let{`'`}s Talk!</h2>
+            <h2 className="rainbowText">Tell me about your projects.</h2>
           </div>
           <h5 className="text-center md:text-left text-sm font-thin text-green-200 md:font-semibold italic">
             Let{`'`}s build your dreams{" "}
@@ -69,14 +76,14 @@ const ContactMe = (props: Props) => {
           <div className="text-xs flex flex-row gap-3 justify-center items-center md:flex-col md:items-start md:font-bold">
             <span>
               <ImLocation className="mr-[1px] text-amber-300 md:mr-2 md:text-xl inline" />
-              Ankara, TURKIYE
+              {contactAddress}
             </span>
             <span>
               <GrMail className="mr-[1px] text-amber-300 md:mr-2 md:text-xl inline" />
-              gorkemgocer7@gmail.com
+              {contactEmail}
             </span>
           </div>
-        </div>
+        </motion.div>
         <div className="border border-gray-800 p-4 md:p-14 md:pb-4 rounded-b-xl w-full">
           <form
             onSubmit={handleSubmit(onSubmit)}

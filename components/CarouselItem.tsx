@@ -1,82 +1,61 @@
-import { CarouselItemType } from "./data";
-import { useCarousel } from "@/context/carousel-ctx";
-import { motion } from "framer-motion";
 import Image from "next/image";
-interface Props extends CarouselItemType {
+import { motion } from "framer-motion";
+import { Project } from "@/typings";
+import { urlFor } from "@/sanity";
+import { useCarousel } from "@/context/carousel-ctx";
+
+interface Props {
   idx: number;
   classes: string;
+  project: Project;
 }
 
-const CarouselItem = (props: Props) => {
+const CarouselItem = ({ project, idx, classes }: Props) => {
   const setSelectedIdx = useCarousel((state) => state.setSelectedIdx);
   return (
     <div
-      onClick={() => setSelectedIdx(props.idx)}
-      className={`${props.classes} bg-[#202120] text-gray-300 p-4 md:py-4 rounded-md flex flex-col items-center space-y-8
-    absolute  h-[25rem] md:h-[30rem] lg:h-[35rem] w-full max-w-[20rem] overflow-y-scroll overflow-x-hidden
-    scrollbar-thin scrollbar-track-green-200/20 scrollbar-thumb-[#CF2400]/70 scrollbar-thumb-rounded-full
+      onClick={() => setSelectedIdx(idx)}
+      className={`${classes} bg-gray-700/50 text-gray-300 p-2 md:py-4 rounded-md flex flex-col items-center space-y-8
+    absolute xs:h-[20rem] md:h-[30rem] lg:h-[30rem] w-full max-w-[20rem] overflow-y-scroll overflow-x-hidden
+      scrollbar-thin scrollbar-track-green-200/20 scrollbar-thumb-[#CF2400]/70 scrollbar-thumb-rounded-full
     `}
     >
-      {/* <h3 className="text-[#CF2400] tracking-widest text-lg md:text-3xl">
-        {props.title}
-      </h3>
-      <div>
-        <p className="text-xs md:text-sm">{props.description}</p>
-      </div> */}
       <motion.img
         initial={{ y: 50, opacity: 0 }}
         whileInView={{ y: 0, opacity: 1 }}
         viewport={{ once: false }}
         transition={{ duration: 0.75 }}
-        className=" h-24 w-48 md:h-30 md:w-40 xl:h-40 xl:w-56 rounded-lg object-contain object-center"
-        src="https://res.cloudinary.com/dinhhwb9x/image/upload/v1675098548/busLogo_asm9hj.png"
+        className=" h-24 w-48 md:h-30 md:w-40 xl:h-40 xl:w-56 rounded-xl object-cover object-center"
+        src={urlFor(project?.projectImage).url()}
       />
       <div className="space-y-4 text-center md:text-left">
-        <h4 className="text-xl md:text-xl xl:text-2xl font-bold tracking-[10px]">
-          Developer
+        <h4 className="text-sm md:text-lg font-bold tracking-[5px]">
+          {project?.projectName}
         </h4>
-        <p className="text-sm md:text-lg italic text-gray-400">
+        <p className="text-xs md:text-md italic text-gray-400">
           Technologies Used
         </p>
         <div className="flex flex-row gap-5 justify-center">
-          <Image
-            className="w-4 h-4 md:w-6 md:h-6 rounded object-cover"
-            width={100}
-            height={100}
-            src="https://cdn-icons-png.flaticon.com/512/5968/5968292.png"
-            alt="tech"
-          />
-          <Image
-            className="w-4 h-4 md:w-6 md:h-6 rounded object-cover"
-            width={100}
-            height={100}
-            src="https://cdn-icons-png.flaticon.com/512/174/174854.png"
-            alt="tech"
-          />
-          <Image
-            className="w-4 h-4 md:w-6 md:h-6 rounded object-cover"
-            width={100}
-            height={100}
-            src="https://cdn-icons-png.flaticon.com/512/732/732190.png"
-            alt="tech"
-          />
+          {project?.technologiesUsed.map((tech) => (
+            <Image
+              key={tech._id}
+              className="w-4 h-4 md:w-6 md:h-6 rounded object-cover bg-gray-300 p-[2px]"
+              width={100}
+              height={100}
+              src={urlFor(tech.skillImage).url()}
+              alt="tech"
+            />
+          ))}
         </div>
         <p className="text-xs md:text-md">
           Project Date :{" "}
           <span className="tracking-widest italic font-semibold underline underline-offset-4">
-            Sept 2021
+            {project?.projectDate}
           </span>
         </p>
         <ul className="list-disc space-y-4 ml-4 text-left text-xs md:text-md">
-          <li>
-            Student Tracker is a web app designed for parents to monitor the
-            location and safety of their children while they are in transit to
-            and from school via the school bus. The application provides
-            real-time updates on the child{"`"}s location and allows parents to
-            ensure that their child arrives at school safely and is returned
-            home without any inconvenience.
-          </li>
-          <li>github link</li>
+          <li>{project?.projectSummary}</li>
+          <li className="italic underline">{project?.projectLink}</li>
         </ul>
       </div>
     </div>

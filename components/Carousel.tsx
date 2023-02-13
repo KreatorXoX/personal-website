@@ -1,11 +1,13 @@
 import { useEffect } from "react";
-import CarouselItem from "./CarouselItem";
-import { data } from "./data";
+import { Project } from "@/typings";
 import { useCarousel } from "@/context/carousel-ctx";
+import CarouselItem from "./CarouselItem";
 
-interface Props {}
+type Props = {
+  projects: Project[];
+};
 
-const Carousel = (props: Props) => {
+const Carousel = ({ projects }: Props) => {
   const setDataLength = useCarousel((state) => state.setDataLength);
   const setSelectedIdx = useCarousel((state) => state.setSelectedIdx);
   const selectedIdx = useCarousel((state) => state.selectedIdx);
@@ -15,9 +17,9 @@ const Carousel = (props: Props) => {
   const decreaseIdx = useCarousel((state) => state.decreaseIdx);
 
   useEffect(() => {
-    setDataLength(data.length);
+    setDataLength(projects.length);
     setSelectedIdx(0);
-  }, [setDataLength, setSelectedIdx]);
+  }, [setDataLength, setSelectedIdx, projects.length]);
 
   const rightClickHandler = () => {
     increaseIdx();
@@ -29,7 +31,7 @@ const Carousel = (props: Props) => {
   return (
     <div className="relative w-full h-screen">
       <div className="relative h-screen">
-        {data.map((card, idx) => {
+        {projects?.map((project, idx) => {
           let className = "card";
 
           if (idx === selectedIdx) className = "card card--active";
@@ -38,12 +40,17 @@ const Carousel = (props: Props) => {
           else className = "card";
 
           return (
-            <CarouselItem classes={className} key={idx} {...card} idx={idx} />
+            <CarouselItem
+              classes={className}
+              key={idx}
+              project={project}
+              idx={idx}
+            />
           );
         })}
         <div
           className="absolute lg:hidden  flex flex-row gap-16
-          bottom-0 left-[50%] transform -translate-x-[50%] -translate-y-24 md:-translate-y-[100%]
+          -bottom-5 sm:bottom-0  left-[50%] transform -translate-x-[50%] -translate-y-24 md:-translate-y-[100%]
         "
         >
           <button

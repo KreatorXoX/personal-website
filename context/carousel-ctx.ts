@@ -34,7 +34,6 @@ export const useCarousel = create<State & Action>((set) => ({
   increaseIdx: () =>
     set((state) => {
       let index = (state.selectedIdx + 1) % state.dataLength;
-
       return {
         ...state,
         selectedIdx: index,

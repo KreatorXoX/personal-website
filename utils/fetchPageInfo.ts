@@ -11,7 +11,6 @@ export const fetchPageInfo = async (): Promise<PageInfo> => {
     }
 
     const data = await res.json();
-    console.log(data);
     const pageInfo: PageInfo = data.pageInfo;
     return pageInfo;
   } catch (error) {

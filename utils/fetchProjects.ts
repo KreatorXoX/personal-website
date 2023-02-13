@@ -11,7 +11,6 @@ export const fetchProjects = async (): Promise<Project[]> => {
     }
 
     const data = await res.json();
-    console.log(data);
     const projects: Project[] = data.projects;
     return projects;
   } catch (error) {

@@ -1,4 +1,7 @@
 import React from "react";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { Social } from "@/typings";
 import {
   SiCodewars,
   SiLeetcode,
@@ -7,9 +10,7 @@ import {
   SiChainlink,
 } from "react-icons/si";
 import { AiOutlineMail } from "react-icons/ai";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { Social } from "@/typings";
+
 type Props = {
   socials: Social[];
 };
@@ -23,7 +24,7 @@ const Header = ({ socials }: Props) => {
         transition={{ duration: 1.25, delay: 3 }}
         className="flex flex-row gap-5 items-center"
       >
-        {socials.map((social) => (
+        {socials?.map((social) => (
           <Link href={`${social.socialUrl}`} key={`${social._id}`}>
             {social.socialName === "Github" ? (
               <SiGithub

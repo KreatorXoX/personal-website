@@ -11,7 +11,6 @@ export const fetchSocials = async (): Promise<Social[]> => {
     }
 
     const data = await res.json();
-    console.log(data);
     const socialsInfo: Social[] = data.socials;
     return socialsInfo;
   } catch (error) {

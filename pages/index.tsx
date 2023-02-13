@@ -10,28 +10,20 @@ import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
 import HeroButton from "@/components/HeroButton";
 
-import { PageInfo, Social, Skill, Project, Typewriter } from "@/typings";
+import { PageInfo, Social, Skill, Project } from "@/typings";
 import { fetchPageInfo } from "@/utils/fetchPageInfo";
 import { fetchSkills } from "@/utils/fetchSkills";
 import { fetchSocials } from "@/utils/fetchSocials";
 import { fetchProjects } from "@/utils/fetchProjects";
-import { fetchTypewriter } from "@/utils/fetchTypewriter";
 
 type Props = {
   pageInfo: PageInfo;
   socials: Social[];
   skills: Skill[];
   projects: Project[];
-  typewriterInfo: Typewriter;
 };
 
-export default function Home({
-  pageInfo,
-  socials,
-  skills,
-  projects,
-  typewriterInfo,
-}: Props) {
+export default function Home({ pageInfo, socials, skills, projects }: Props) {
   return (
     <div
       className="relative snap-y snap-mandatory scroll-smooth h-screen overflow-y-scroll overflow-x-hidden bg-[#191A19] z-5
@@ -62,13 +54,18 @@ export default function Home({
 
       {/* Projects */}
       <section id="projects" className="snap-start ">
-        <Projects />
+        <Projects projects={projects} />
       </section>
 
       {/* Contact */}
       <section id="contact" className="snap-end ">
-        <ContactMe />
+        <ContactMe
+          contactEmail={pageInfo.email}
+          contactAddress={pageInfo.address}
+        />
       </section>
+
+      {/* Footer */}
       <Link href="#hero">
         <footer className="sticky bottom-4 z-20">
           <HeroButton />
@@ -83,7 +80,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
   const skills: Skill[] = await fetchSkills();
   const socials: Social[] = await fetchSocials();
   const projects: Project[] = await fetchProjects();
-  const typewriterInfo: Typewriter = await fetchTypewriter();
 
   return {
     props: {
@@ -91,7 +87,6 @@ export const getStaticProps: GetStaticProps<Props> = async () => {
       skills,
       socials,
       projects,
-      typewriterInfo,
     },
     revalidate: 60 * 6 * 10,
   };

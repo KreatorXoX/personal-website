@@ -1,9 +1,15 @@
 import React from "react";
 import { motion } from "framer-motion";
+import { Project } from "@/typings";
+import { useCarousel } from "../context/carousel-ctx";
 import Carousel from "./Carousel";
-type Props = {};
 
-const Projects = (props: Props) => {
+type Props = {
+  projects: Project[];
+};
+
+const Projects = ({ projects }: Props) => {
+  const idx = useCarousel((state) => state.selectedIdx);
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -16,8 +22,11 @@ const Projects = (props: Props) => {
       <h3 className="absolute top-24 uppercase tracking-[14px] text-gray-400 md:text-2xl ">
         Projects
       </h3>
-      <div className="w-full flex flex-row snap-x snap-mandatory">
-        <Carousel />
+      <h5 className="absolute top-36 text-gray-400">
+        {idx + 1} out of {projects.length}
+      </h5>
+      <div className="w-full flex flex-row snap-x snap-mandatory mt-6 sm:mt-0">
+        <Carousel projects={projects} />
       </div>
     </motion.div>
   );

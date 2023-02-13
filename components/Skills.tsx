@@ -1,7 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import SkillItem from "./Skill";
 import { Skill } from "@/typings";
+import SkillItem from "./Skill";
+
 type Props = {
   skills: Skill[];
 };
@@ -22,22 +23,10 @@ const Skills = ({ skills }: Props) => {
         Hover The Icons
       </h3>
 
-      <div className="grid grid-cols-3 md:grid-cols-4 gap-10 md:gap-20 mt-12">
-        {skills.map((skill, idx) => (
+      <div className="grid grid-cols-4 gap-10 md:gap-20 mt-12">
+        {skills?.map((skill, idx) => (
           <SkillItem key={skill._id} lefty={idx % 2 === 0} skill={skill} />
         ))}
-        {/* <SkillItem lefty />
-        <SkillItem lefty />
-        <SkillItem lefty />
-        <SkillItem lefty />
-        <SkillItem />
-        <SkillItem />
-        <SkillItem />
-        <SkillItem />
-        <SkillItem lefty />
-        <SkillItem lefty />
-        <SkillItem lefty />
-        <SkillItem lefty /> */}
       </div>
     </motion.div>
   );

@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { useTypewriter, Cursor } from "react-simple-typewriter";
-import BackgroundShapes from "./BackgroundShapes";
 import Image from "next/image";
 import Link from "next/link";
+import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { PageInfo } from "@/typings";
 import { urlFor } from "@/sanity";
+import BackgroundShapes from "./BackgroundShapes";
 
 type Props = {
   pageInfo: PageInfo;
@@ -14,9 +14,8 @@ const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
 let iterations = -40;
 
 const Hero = ({ pageInfo }: Props) => {
-  const [originalText, setOriginalText] = useState<string>(`${pageInfo.role}`);
+  const [originalText, setOriginalText] = useState<string>(`${pageInfo?.role}`);
   const [mashedWords, setMashedWords] = useState<string>("");
-  console.log(pageInfo);
   const mashWords = useCallback(
     (text: string): string => {
       return text
@@ -43,7 +42,7 @@ const Hero = ({ pageInfo }: Props) => {
   }, [mashWords, originalText]);
 
   const [text] = useTypewriter({
-    words: pageInfo.typewriterInfo.typeInfo,
+    words: pageInfo?.typewriterInfo.typeInfo,
     loop: 1,
     delaySpeed: 2000,
     typeSpeed: 100,

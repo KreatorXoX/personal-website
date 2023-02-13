@@ -1,9 +1,9 @@
 import React from "react";
-import { motion } from "framer-motion";
-import { MdStar, MdStarOutline, MdStarHalf } from "react-icons/md";
 import Image from "next/image";
+import { motion } from "framer-motion";
 import { Skill } from "@/typings";
 import { urlFor } from "@/sanity";
+
 type Props = {
   lefty?: boolean;
   skill: Skill;
@@ -24,7 +24,7 @@ const Skill = ({ lefty, skill }: Props) => {
       <div className="relative w-10 h-10 md:w-14 md:h-14 rounded-2xl text-white overflow-hidden cursor-pointer skill">
         <Image
           fill
-          src={urlFor(skill.skillImage).url()}
+          src={urlFor(skill?.skillImage).url()}
           alt="skills"
           className="absolute inset-0 w-full h-full flex justify-center items-center skill-front "
         />
