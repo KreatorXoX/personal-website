@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useTypewriter, Cursor } from "react-simple-typewriter";
 import { PageInfo } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/client";
 import BackgroundShapes from "./BackgroundShapes";
 
 type Props = {
@@ -59,6 +59,7 @@ const Hero = ({ pageInfo }: Props) => {
         height={208}
         alt="first-image"
         src={urlFor(pageInfo?.heroImage).url()}
+        priority={true}
       />
       <div className="flex flex-col gap-4">
         <h2 className="text-sm md:text-lg uppercase text-gray-400 py-3 tracking-[11px] md:tracking-[20px]">

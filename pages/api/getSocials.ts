@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { groq } from "next-sanity";
+
 import { Social } from "@/typings";
 
-import { client } from "../../sanity";
+import { client } from "../../lib/client";
 
-const query = groq`
+const query = `
 *[_type=='social']
 `;
 

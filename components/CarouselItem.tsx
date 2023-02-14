@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/client";
 import { useCarousel } from "@/context/carousel-ctx";
 
 interface Props {

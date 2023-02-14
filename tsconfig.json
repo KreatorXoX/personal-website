@@ -19,6 +19,15 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx",
+    "sanity-personal-page/schemas/typewriter.js",
+    "sanity-personal-page/schemas/social.js",
+    "sanity-personal-page/schemas/skill.js",
+    "sanity-personal-page/schemas/project.js",
+    "sanity-personal-page/schemas/pageInfo.js"
+  ],
   "exclude": ["node_modules"]
 }

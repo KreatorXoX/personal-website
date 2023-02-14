@@ -1,10 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { groq } from "next-sanity";
 import { Project } from "@/typings";
+import { client } from "../../lib/client";
 
-import { client } from "../../sanity";
-
-const query = groq`
+const query = `
 *[_type=='project']{
 ...,
 technologiesUsed[]->

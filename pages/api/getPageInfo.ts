@@ -1,10 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
-import { groq } from "next-sanity";
 import { PageInfo } from "@/typings";
 
-import { client } from "../../sanity";
+import { client } from "../../lib/client";
 
-const query = groq`
+const query = `
 *[_type=='pageInfo'][0]{
 ...,
 socials[]->,typewriterInfo->
@@ -14,6 +13,7 @@ socials[]->,typewriterInfo->
 type Data = {
   pageInfo: PageInfo;
 };
+
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>

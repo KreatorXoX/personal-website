@@ -1,7 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { Image } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/client";
 
 type Props = {
   image: Image;

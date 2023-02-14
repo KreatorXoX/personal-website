@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Skill } from "@/typings";
-import { urlFor } from "@/sanity";
+import { urlFor } from "@/lib/client";
 
 type Props = {
   lefty?: boolean;
@@ -26,6 +26,7 @@ const Skill = ({ lefty, skill }: Props) => {
           fill
           src={urlFor(skill?.skillImage).url()}
           alt="skills"
+          sizes="56px,56px"
           className="absolute inset-0 w-full h-full flex justify-center items-center skill-front "
         />
         <div className="  absolute inset-0 w-full h-full flex flex-col justify-center items-center bg-[#202120] skill-back">

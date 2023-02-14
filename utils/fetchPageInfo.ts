@@ -6,6 +6,8 @@ export const fetchPageInfo = async (): Promise<PageInfo> => {
       `${process.env.NEXT_PUBLIC_BASE_URL}/api/getPageInfo`
     );
 
+    console.log(res);
+
     if (!res.ok) {
       throw new Error("fetchin page info failed");
     }
