@@ -1,8 +1,9 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Project } from "@/typings";
-import { urlFor } from "@/lib/client";
+
 import { useCarousel } from "@/context/carousel-ctx";
+import { urlForImage } from "@/sanity/lib/image";
 
 interface Props {
   idx: number;
@@ -26,7 +27,7 @@ const CarouselItem = ({ project, idx, classes }: Props) => {
         viewport={{ once: false }}
         transition={{ duration: 0.75 }}
         className=" h-24 w-48 md:h-30 md:w-40 xl:h-40 xl:w-56 rounded-xl object-cover object-center"
-        src={urlFor(project?.projectImage).url()}
+        src={urlForImage(project?.projectImage).url()}
       />
       <div className="space-y-4 text-center md:text-left">
         <h4 className="text-sm md:text-lg font-bold tracking-[5px]">
@@ -42,7 +43,7 @@ const CarouselItem = ({ project, idx, classes }: Props) => {
               className="w-4 h-4 md:w-6 md:h-6 rounded object-cover bg-gray-300 p-[2px]"
               width={100}
               height={100}
-              src={urlFor(tech.skillImage).url()}
+              src={urlForImage(tech.skillImage).url()}
               alt="tech"
             />
           ))}

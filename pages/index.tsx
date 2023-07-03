@@ -25,8 +25,8 @@ type Props = {
 
 export default function Home({ pageInfo, socials, skills, projects }: Props) {
   return (
-    <div
-      className="relative snap-y snap-mandatory scroll-smooth h-screen overflow-y-scroll overflow-x-hidden bg-[#191A19] z-5
+    <main
+      className="relative snap-y snap-mandatory scroll-smooth h-screen overflow-y-scroll overflow-x-hidden bg-gray-800 z-5
      scrollbar-thin scrollbar-track-green-200/20 scrollbar-thumb-[#CF2400]/70 scrollbar-thumb-rounded-full
     "
     >
@@ -44,7 +44,7 @@ export default function Home({ pageInfo, socials, skills, projects }: Props) {
 
       {/* About */}
       <section id="about" className="snap-center ">
-        <About image={pageInfo.profileImage} about={pageInfo.about} />
+        <About image={pageInfo?.profileImage} about={pageInfo?.about} />
       </section>
 
       {/* Skills */}
@@ -60,18 +60,13 @@ export default function Home({ pageInfo, socials, skills, projects }: Props) {
       {/* Contact */}
       <section id="contact" className="snap-end ">
         <ContactMe
-          contactEmail={pageInfo.email}
-          contactAddress={pageInfo.address}
+          contactEmail={pageInfo?.email}
+          contactAddress={pageInfo?.address}
         />
       </section>
 
       {/* Footer */}
-      <Link href="#hero">
-        <footer className="sticky bottom-4 z-20">
-          <HeroButton />
-        </footer>
-      </Link>
-    </div>
+    </main>
   );
 }
 

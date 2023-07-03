@@ -15,17 +15,17 @@ const Skills = ({ skills }: Props) => {
       transition={{ duration: 1.75 }}
       className="h-screen flex flex-col md:flex-row max-w-7xl px-10 justify-center items-center mx-auto relative"
     >
-      <h3 className="absolute top-24 uppercase tracking-[14px] text-gray-400 md:text-2xl ">
+      <h3 className="absolute top-24 uppercase tracking-[14px] text-slate-200 md:text-2xl ">
         Skills
       </h3>
 
-      <h3 className="absolute top-36 text-sm uppercase tracking-[10px] text-gray-500 ">
+      <h3 className="absolute top-32 text-sm uppercase tracking-[10px] text-slate-300 ">
         Hover The Icons
       </h3>
 
-      <div className="grid grid-cols-4 gap-10 md:gap-20 mt-12">
+      <div className="grid grid-cols-3 sm:grid-cols-4 gap-10 sm:gap-20 mt-32">
         {skills?.map((skill, idx) => (
-          <SkillItem key={skill._id} lefty={idx % 2 === 0} skill={skill} />
+          <SkillItem key={skill._id} lefty={idx % 3 === 0} skill={skill} />
         ))}
       </div>
     </motion.div>

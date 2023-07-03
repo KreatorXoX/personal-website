@@ -10,6 +10,7 @@ import {
   SiChainlink,
 } from "react-icons/si";
 import { AiOutlineMail } from "react-icons/ai";
+import HeroButton from "./HeroButton";
 
 type Props = {
   socials: Social[];
@@ -17,58 +18,43 @@ type Props = {
 
 const Header = ({ socials }: Props) => {
   return (
-    <header className="sticky top-0 z-20 flex flex-row justify-between max-w-7xl px-10 py-6 mx-auto">
+    <header className="sticky top-0 z-20 flex flex-row justify-between max-w-7xl px-10 py-3 mx-auto items-center">
+      <div>
+        <Link href="#hero">
+          <HeroButton />
+        </Link>
+      </div>
       <motion.div
         initial={{ opacity: 0, scale: 0, rotateZ: 180 }}
         animate={{ opacity: 1, scale: 1, rotateZ: 0 }}
         transition={{ duration: 1.25, delay: 3 }}
-        className="flex flex-row gap-5 items-center"
+        className="flex flex-row gap-5 md:gap-10 items-center"
       >
         {socials?.map((social) => (
           <Link href={`${social.socialUrl}`} key={`${social._id}`}>
             {social.socialName === "Github" ? (
-              <SiGithub
-                className="text-xl md:text-3xl"
-                color="rgb(156 163 175)"
-              />
+              <SiGithub className="text-2xl md:text-3xl text-slate-200 hover:text-gray-400 transition-colors duration-200" />
             ) : social.socialName === "CodeWars" ? (
-              <SiCodewars
-                className="text-xl md:text-3xl"
-                color="rgb(156 163 175)"
-              />
+              <SiCodewars className="text-2xl md:text-3xl text-slate-200 hover:text-gray-400 transition-colors duration-200" />
             ) : social.socialName === "AngelCo" ? (
-              <SiAngellist
-                className="text-xl md:text-3xl"
-                color="rgb(156 163 175)"
-              />
+              <SiAngellist className="text-2xl md:text-3xl text-slate-200 hover:text-gray-400 transition-colors duration-200" />
             ) : social.socialName === "LeetCode" ? (
-              <SiLeetcode
-                className="text-xl md:text-3xl"
-                color="rgb(156 163 175)"
-              />
+              <SiLeetcode className="text-2xl md:text-3xl text-slate-200 hover:text-gray-400 transition-colors duration-200" />
             ) : (
-              <SiChainlink
-                className="text-xl md:text-3xl"
-                color="rgb(156 163 175)"
-              />
+              <SiChainlink className="text-2xl md:text-3xl text-slate-200 hover:text-gray-400 transition-colors duration-200" />
             )}
           </Link>
         ))}
       </motion.div>
+
       <motion.div
         initial={{ opacity: 0, scale: 0, x: 200 }}
         animate={{ opacity: 1, scale: 1, x: 0 }}
         transition={{ duration: 1.25, delay: 3 }}
       >
-        <Link
-          href="mailto:gorkemgocer7@gmail.com"
-          className="flex flex-row gap-2 items-center"
-        >
-          <AiOutlineMail
-            className="text-xl md:text-3xl"
-            color="rgb(156 163 175)"
-          />
-          <p className="uppercase hidden md:inline-flex text-sm text-gray-400 ">
+        <Link href="#contact" className="flex flex-col gap-2 items-center">
+          <AiOutlineMail className="text-2xl md:text-3xl text-slate-200 hover:text-gray-400 transition-colors duration-200" />
+          <p className="uppercase hidden md:inline-flex text-sm text-slate-200 ">
             get in touch
           </p>
         </Link>

@@ -48,24 +48,31 @@ const Carousel = ({ projects }: Props) => {
             />
           );
         })}
-        <div
-          className="absolute lg:hidden  flex flex-row gap-16
+        {projects?.length > 0 && (
+          <div
+            className="absolute lg:hidden
           -bottom-5 sm:bottom-0  left-[50%] transform -translate-x-[50%] -translate-y-24 md:-translate-y-[100%]
         "
-        >
-          <button
-            onClick={leftClickHandler}
-            className="font-semibold text-4xl md:text-7xl  text-gray-500"
           >
-            {"<"}
-          </button>
-          <button
-            onClick={rightClickHandler}
-            className="font-semibold text-4xl md:text-7xl  text-gray-500"
-          >
-            {">"}
-          </button>
-        </div>
+            <div className="flex items-center gap-4">
+              <button
+                onClick={leftClickHandler}
+                className="font-semibold text-4xl mb-1  text-slate-200"
+              >
+                {"<"}
+              </button>
+              <h5 className="text-slate-200">
+                {selectedIdx + 1} of {projects.length}
+              </h5>
+              <button
+                onClick={rightClickHandler}
+                className="font-semibold text-4xl mb-1 text-slate-200"
+              >
+                {">"}
+              </button>
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

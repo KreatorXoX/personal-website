@@ -53,10 +53,10 @@ const ContactMe = ({ contactAddress, contactEmail }: Props) => {
       transition={{ duration: 1.75 }}
       className="h-screen flex flex-col md:flex-row max-w-7xl px-10 justify-center items-center mx-auto relative overflow-hidden"
     >
-      <h3 className="absolute top-24 uppercase tracking-[14px] text-gray-400 md:text-2xl ">
+      <h3 className="absolute top-24 uppercase tracking-[14px] text-slate-200 md:text-2xl ">
         Contact me
       </h3>
-      <div className="flex flex-col w-full md:items-center md:flex-row text-center gap-10 text-gray-300 md:text-xl">
+      <div className="flex flex-col w-full md:items-center md:flex-row text-center gap-10 text-slate-200 md:text-xl mt-10">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -89,12 +89,12 @@ const ContactMe = ({ contactAddress, contactEmail }: Props) => {
             onSubmit={handleSubmit(onSubmit)}
             className="flex flex-col gap-8 text-left w-full"
           >
-            <h1 className="mb-3 md:mb-6 font-semibold text-gray-50 md:text-2xl">
+            <h1 className="mb-3 md:mb-6 font-semibold text-slate-50 md:text-2xl">
               Send me a Mail <span className="ml-2">🚀 </span>
             </h1>
-            <div className="relative text-xs md:text-lg">
+            <div className="relative md:text-lg">
               <label
-                className="absolute text-sm text-gray-400 italic -top-6"
+                className="absolute text-sm text-slate-200 italic -top-6"
                 htmlFor="name"
               >
                 Name
@@ -106,9 +106,9 @@ const ContactMe = ({ contactAddress, contactEmail }: Props) => {
                 id="name"
               />
             </div>
-            <div className="relative text-xs md:text-lg">
+            <div className="relative  md:text-lg">
               <label
-                className="absolute text-sm text-gray-400 italic -top-6"
+                className="absolute text-sm text-slate-200 italic -top-6"
                 htmlFor="email"
               >
                 Email
@@ -120,9 +120,9 @@ const ContactMe = ({ contactAddress, contactEmail }: Props) => {
                 id="email"
               />
             </div>
-            <div className="relative text-xs md:text-lg">
+            <div className="relative  md:text-lg">
               <label
-                className="absolute text-sm text-gray-400 italic -top-6"
+                className="absolute text-sm text-slate-200 italic -top-6"
                 htmlFor="message"
               >
                 Message

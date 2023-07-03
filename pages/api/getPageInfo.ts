@@ -1,7 +1,6 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { PageInfo } from "@/typings";
-
-import { client } from "../../lib/client";
+import { client } from "@/sanity/lib/client";
 
 const query = `
 *[_type=='pageInfo'][0]{

@@ -4,7 +4,7 @@
 
 @layer components {
   .hero-button {
-    @apply uppercase text-sm text-gray-400 tracking-widest md:tracking-[11px] transition-all duration-500 px-6 py-2 rounded-full hover:shadow-md hover:shadow-[#4E9F3D] hover:text-gray-700;
+    @apply uppercase text-sm text-slate-200 tracking-widest md:tracking-[11px] transition-all duration-500 px-6 py-2 rounded-full hover:shadow-md hover:shadow-[#4E9F3D] hover:text-gray-700;
   }
 }
 
@@ -19,7 +19,7 @@
 }
 
 .form--input:focus {
-  color: rgb(229 231 235);
+  color: rgb(226 232 240);
   background-color: rgb(107 114 128);
   border-bottom: 1px solid rgb(187 247 208);
 }
@@ -99,39 +99,39 @@
   background: rgb(156 163 175);
   background: -webkit-linear-gradient(
     left,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    violet
+    #a5494f,
+    #4a57ba,
+    #5f388b,
+    #ad7e48,
+    #a7a15a,
+    #48864d
   );
   background: -o-linear-gradient(
     right,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    violet
+    #a5494f,
+    #4a57ba,
+    #5f388b,
+    #ad7e48,
+    #a7a15a,
+    #48864d
   );
   background: -moz-linear-gradient(
     right,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    violet
+    #a5494f,
+    #4a57ba,
+    #5f388b,
+    #ad7e48,
+    #a7a15a,
+    #48864d
   );
   background: linear-gradient(
     to right,
-    orange,
-    yellow,
-    green,
-    cyan,
-    blue,
-    violet
+    #a5494f,
+    #4a57ba,
+    #5f388b,
+    #ad7e48,
+    #a7a15a,
+    #48864d
   );
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

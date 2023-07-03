@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import { Skill } from "@/typings";
-import { urlFor } from "@/lib/client";
+import { urlForImage } from "@/sanity/lib/image";
 
 type Props = {
   lefty?: boolean;
@@ -12,6 +12,7 @@ type Props = {
 const Skill = ({ lefty, skill }: Props) => {
   return (
     <motion.div
+      className="rounded-full"
       initial={{ opacity: 0, x: lefty ? 100 : -100 }}
       whileInView={{ opacity: 1, x: 0 }}
       transition={{
@@ -21,20 +22,16 @@ const Skill = ({ lefty, skill }: Props) => {
         stiffness: 50,
       }}
     >
-      <div className="relative w-10 h-10 md:w-14 md:h-14 rounded-2xl text-white overflow-hidden cursor-pointer skill">
-        <Image
-          fill
-          src={urlFor(skill?.skillImage).url()}
-          alt="skills"
-          sizes="56px,56px"
-          className="absolute inset-0 w-full h-full flex justify-center items-center skill-front "
-        />
-        <div className="  absolute inset-0 w-full h-full flex flex-col justify-center items-center bg-[#202120] skill-back">
-          {/* <MdStar color="yellow" />
-          <MdStar color="yellow" />
-          <MdStar color="yellow" />
-          <MdStarHalf color="yellow" />
-          <MdStarOutline color="yellow" /> */}
+      <div className="relative bg-gray-700 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl text-slate-200 overflow-hidden cursor-pointer skill">
+        <div>
+          <Image
+            fill
+            src={urlForImage(skill?.skillImage).url()}
+            alt="skills"
+            className="absolute inset-0 p-2 w-full h-full flex justify-center items-center skill-front "
+          />
+        </div>
+        <div className="bg-gray-700 border-none outline-none absolute inset-0 w-full h-full flex flex-col justify-center items-center skill-back">
           <svg
             aria-hidden="true"
             className="w-5 h-5 text-yellow-400 "
