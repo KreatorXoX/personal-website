@@ -1,19 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-
 import { Social } from "@/typings";
-
 import { client } from "@/sanity/lib/client";
-const query = `
-*[_type=='social']
-`;
+import { socialsQuery } from "@/utils/groqs";
 
-type Data = {
-  socials: Social[];
-};
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  const socials: Social[] = await client.fetch(query);
-  res.status(200).json({ socials });
+export default async function getSocials() {
+  try {
+    const socials: Social[] = await client.fetch(socialsQuery);
+    return socials;
+  } catch (error) {
+    console.log("error fetching the socials info");
+    throw new Error();
+  }
 }

@@ -1,22 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from "next";
 import { PageInfo } from "@/typings";
 import { client } from "@/sanity/lib/client";
+import { pageInfoQuery } from "@/utils/groqs";
 
-const query = `
-*[_type=='pageInfo'][0]{
-...,
-socials[]->,typewriterInfo->
-}
-`;
-
-type Data = {
-  pageInfo: PageInfo;
-};
-
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  const pageInfo: PageInfo = await client.fetch(query);
-  res.status(200).json({ pageInfo });
+export default async function getPageInfo() {
+  try {
+    const pageInfo: PageInfo = await client.fetch(pageInfoQuery);
+    return pageInfo;
+  } catch (error) {
+    console.log("error fetching the page info");
+    throw new Error();
+  }
 }

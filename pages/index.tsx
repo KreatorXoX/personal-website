@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Link from "next/link";
 import { GetStaticProps } from "next";
 
 import Header from "@/components/Header";
@@ -8,13 +7,20 @@ import About from "@/components/About";
 import Skills from "@/components/Skills";
 import Projects from "@/components/Projects";
 import ContactMe from "@/components/ContactMe";
-import HeroButton from "@/components/HeroButton";
 
 import { PageInfo, Social, Skill, Project } from "@/typings";
-import { fetchPageInfo } from "@/utils/fetchPageInfo";
-import { fetchSkills } from "@/utils/fetchSkills";
-import { fetchSocials } from "@/utils/fetchSocials";
-import { fetchProjects } from "@/utils/fetchProjects";
+import {
+  pageInfoQuery,
+  projectsQuery,
+  skillsQuery,
+  socialsQuery,
+} from "@/utils/groqs";
+
+import { client } from "@/sanity/lib/client";
+import getPageInfo from "./api/getPageInfo";
+import getProjects from "./api/getProjects";
+import getSkills from "./api/getSkills";
+import getSocials from "./api/getSocials";
 
 type Props = {
   pageInfo: PageInfo;
@@ -71,12 +77,10 @@ export default function Home({ pageInfo, socials, skills, projects }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo: PageInfo = await fetchPageInfo();
-  const skills: Skill[] = await fetchSkills();
-  const socials: Social[] = await fetchSocials();
-  const projects: Project[] = await fetchProjects();
-
-  console.log(projects);
+  const pageInfo = await getPageInfo();
+  const projects = await getProjects();
+  const socials = await getSocials();
+  const skills = await getSkills();
 
   return {
     props: {

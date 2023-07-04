@@ -1,19 +1,13 @@
-import type { NextApiRequest, NextApiResponse } from "next";
-
 import { Skill } from "@/typings";
-
 import { client } from "@/sanity/lib/client";
-const query = `
-*[_type=='skill']
-`;
+import { skillsQuery } from "@/utils/groqs";
 
-type Data = {
-  skills: Skill[];
-};
-export default async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse<Data>
-) {
-  const skills: Skill[] = await client.fetch(query);
-  res.status(200).json({ skills });
+export default async function getSkills() {
+  try {
+    const skills: Skill[] = await client.fetch(skillsQuery);
+    return skills;
+  } catch (error) {
+    console.log("error fetching the skills info");
+    throw new Error();
+  }
 }
