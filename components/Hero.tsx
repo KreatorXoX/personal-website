@@ -23,9 +23,10 @@ const Hero = ({ pageInfo }: Props) => {
             className="rounded-full h-52 w-52 mx-auto object-cover"
             width={100}
             height={100}
+            quality={100}
+            priority={true}
             alt="first-image"
             src={urlForImage(pageInfo?.heroImage)?.url()}
-            priority={true}
           />
         )}
       </div>

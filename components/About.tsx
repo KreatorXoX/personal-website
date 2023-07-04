@@ -33,14 +33,14 @@ const About = ({ image, about }: Props) => {
       )}
 
       <div className="sm:space-y-10">
-        <h4 className="sm:text-4xl font-semibold text-slate-200">
+        <h4 className="sm:text-4xl font-semibold font-mono text-slate-200">
           Little{" "}
-          <span className="italic font-mono text-2xl sm:text-6xl text-[#CF2400] underline underline-offset-8">
+          <span className="italic text-2xl sm:text-6xl text-[#CF2400] underline underline-offset-8">
             about
           </span>{" "}
           Me
         </h4>
-        <p className="pt-5 text-xs md:text-lg text-slate-200">{about}</p>
+        <p className="pt-5 text-sm font md:text-lg text-slate-200">{about}</p>
       </div>
     </motion.div>
   );

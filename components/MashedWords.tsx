@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from "react";
 
 const letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-let iterations = -40;
+let iterations = -30;
 type Props = { role?: string };
 
 const MashedWords = ({ role }: Props) => {
@@ -32,7 +32,7 @@ const MashedWords = ({ role }: Props) => {
     return () => clearInterval(interval);
   }, [mashWords, originalText]);
   return (
-    <h2 className="text-sm bg-red-800 sm:bg-inherit sm:text-base md:text-2xl uppercase tracking-widest text-slate-200 py-3">
+    <h2 className="font-mono text-sm bg-red-800 sm:bg-inherit sm:text-base md:text-2xl uppercase tracking-[8px] text-slate-400 py-3">
       {mashedWords}
     </h2>
   );

@@ -54,7 +54,7 @@ const Carousel = ({ projects }: Props) => {
           -bottom-5 sm:bottom-0  left-[50%] transform -translate-x-[50%] -translate-y-24 md:-translate-y-[100%]
         "
           >
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 ">
               <button
                 onClick={leftClickHandler}
                 className="font-semibold text-4xl mb-1  text-slate-200"
@@ -66,7 +66,7 @@ const Carousel = ({ projects }: Props) => {
               </h5>
               <button
                 onClick={rightClickHandler}
-                className="font-semibold text-4xl mb-1 text-slate-200"
+                className="font-semibold text-4xl mb-1  text-slate-200"
               >
                 {">"}
               </button>
