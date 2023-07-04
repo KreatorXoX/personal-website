@@ -17,10 +17,6 @@ import {
 } from "@/utils/groqs";
 
 import { client } from "@/sanity/lib/client";
-import getPageInfo from "./api/getPageInfo";
-import getProjects from "./api/getProjects";
-import getSkills from "./api/getSkills";
-import getSocials from "./api/getSocials";
 
 type Props = {
   pageInfo: PageInfo;
@@ -77,11 +73,10 @@ export default function Home({ pageInfo, socials, skills, projects }: Props) {
 }
 
 export const getStaticProps: GetStaticProps<Props> = async () => {
-  const pageInfo = await getPageInfo();
-  const projects = await getProjects();
-  const socials = await getSocials();
-  const skills = await getSkills();
-
+  const pageInfo: PageInfo = await client.fetch(pageInfoQuery);
+  const projects: Project[] = await client.fetch(projectsQuery);
+  const socials: Social[] = await client.fetch(socialsQuery);
+  const skills: Skill[] = await client.fetch(skillsQuery);
   return {
     props: {
       pageInfo,
