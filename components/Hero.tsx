@@ -14,13 +14,13 @@ type Props = {
 
 const Hero = ({ pageInfo }: Props) => {
   return (
-    <div className="h-screen relative text-center flex flex-col justify-center items-center overflow-hidden space-y-12">
+    <div className="h-screen relative text-center flex flex-col justify-center items-center overflow-hidden space-y-12 wideShort:space-y-0">
       <div className="relative">
         <BackgroundShapes />
 
         {pageInfo?.heroImage && (
           <Image
-            className="rounded-full h-52 w-52 mx-auto object-cover"
+            className="rounded-full h-52 w-52 mx-auto object-cover wideShort:h-24 wideShort:w-24"
             width={100}
             height={100}
             quality={100}

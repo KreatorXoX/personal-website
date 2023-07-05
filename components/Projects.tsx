@@ -17,9 +17,9 @@ const Projects = ({ projects }: Props) => {
       transition={{ duration: 1.75 }}
       className="h-screen flex flex-col md:flex-row w-full overflow-hidden px-10 justify-center items-center mx-auto relative"
     >
-      <div className="w-full absolute top-[35%] bg-[#8bff68] left-0 h-[300px] skew-y-12 -z-20"></div>
-      <div className="w-full absolute top-[35%] bg-[#8bff68] left-0 h-[300px] -skew-y-12 -z-20"></div>
-      <h3 className="absolute top-24 uppercase tracking-[14px] text-slate-200 md:text-2xl ">
+      <div className="w-full absolute top-[35%] bg-[#8bff68] left-0 h-[300px] wideShort:h-[115px] skew-y-12 -z-20"></div>
+      <div className="w-full absolute top-[35%] bg-[#8bff68] left-0 h-[300px] wideShort:h-[115px] -skew-y-12 -z-20"></div>
+      <h3 className="absolute top-24 uppercase tracking-[12px] ml-[12px] hidden tall:inline text-slate-200 md:text-2xl">
         Projects
       </h3>
       {projects?.length > 0 && (

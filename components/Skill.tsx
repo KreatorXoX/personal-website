@@ -22,10 +22,15 @@ const Skill = ({ lefty, skill }: Props) => {
         stiffness: 50,
       }}
     >
-      <div className="relative bg-gray-700 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl text-slate-200 overflow-hidden cursor-pointer skill">
-        <div>
+      <div
+        className="relative bg-gray-700 w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-2xl text-slate-200 overflow-hidden cursor-pointer skill wideShort:w-9 wideShort:h-9
+        wideShort:text-xs
+      "
+      >
+        <div className="fixed w-full h-full">
           <Image
             fill
+            sizes="100"
             src={urlForImage(skill?.skillImage).url()}
             alt="skills"
             className="absolute inset-0 p-2 w-full h-full flex justify-center items-center skill-front "

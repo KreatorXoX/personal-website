@@ -32,7 +32,7 @@ const MashedWords = ({ role }: Props) => {
     return () => clearInterval(interval);
   }, [mashWords, originalText]);
   return (
-    <h2 className="font-mono text-sm bg-red-800 sm:bg-inherit sm:text-base md:text-2xl uppercase tracking-[8px] text-slate-400 py-3">
+    <h2 className="font-mono text-sm bg-red-800 sm:bg-inherit sm:text-base md:text-2xl uppercase tracking-[8px] ml-[8px] text-slate-400 py-3">
       {mashedWords}
     </h2>
   );

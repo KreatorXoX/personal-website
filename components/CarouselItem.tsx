@@ -17,7 +17,7 @@ const CarouselItem = ({ project, idx, classes }: Props) => {
   return (
     <div
       onClick={() => setSelectedIdx(idx)}
-      className={`${classes} bg-gray-700/80 text-slate-100 py-4 px-2 md:py-4 md:px-5 rounded-md flex flex-col justify-center items-center space-y-8
+      className={`${classes} bg-gray-700/80 text-slate-100 py-4 px-2 md:py-4 md:px-5 rounded-md flex flex-col justify-center items-center space-y-8 wideShort:space-y-0
     absolute xs:h-[20rem] md:h-[30rem] lg:h-[32rem] w-full max-w-[20rem] overflow-y-scroll overflow-x-hidden
       scrollbar-thin scrollbar-track-green-200/20 scrollbar-thumb-[#CF2400]/70 scrollbar-thumb-rounded-full
     `}
@@ -31,7 +31,7 @@ const CarouselItem = ({ project, idx, classes }: Props) => {
         src={urlForImage(project?.projectImage).url()}
       />
       <div className="space-y-4 text-center md:text-left">
-        <h4 className="text-sm md:text-lg font-bold tracking-[3px]">
+        <h4 className="text-sm md:text-lg font-bold tracking-[3px] ml-[3px]">
           {project?.projectName}
         </h4>
         <p className="text-xs md:text-md italic text-slate-200">
@@ -51,7 +51,7 @@ const CarouselItem = ({ project, idx, classes }: Props) => {
         </div>
         <p className="text-xs md:text-md">
           Project Date :{" "}
-          <span className="tracking-widest italic font-semibold underline underline-offset-4">
+          <span className="tracking-[3px] ml-[3px] italic font-semibold underline underline-offset-4">
             {project?.projectDate}
           </span>
         </p>

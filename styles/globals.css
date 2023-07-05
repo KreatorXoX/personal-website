@@ -4,7 +4,7 @@
 
 @layer components {
   .hero-button {
-    @apply uppercase text-sm text-slate-200 tracking-widest md:tracking-[11px] transition-all duration-500 px-6 py-2 rounded-full hover:shadow-md hover:shadow-[#4E9F3D] hover:text-gray-700;
+    @apply uppercase text-sm text-slate-200 tracking-widest md:tracking-[11px] md:ml-[11px] transition-all duration-500 px-6 py-2 rounded-full hover:shadow-md hover:shadow-[#4E9F3D] hover:text-gray-700;
   }
 }
 * {
@@ -28,10 +28,11 @@
 
 .skill {
   transform-style: preserve-3d;
-  transition: 0.75s ease;
+  transition: 0.3s ease-in-out;
 }
 .skill:hover {
   transform: rotateY(180deg);
+  transition-delay: 0.3s;
 }
 .skill-front,
 .skill-back {
@@ -45,7 +46,7 @@
 .skill-back {
   z-index: 10;
   opacity: 0;
-  transition: 0.5s ease-in-out;
+  transition: 1s ease-in-out;
 }
 .skill-back:hover {
   opacity: 1;

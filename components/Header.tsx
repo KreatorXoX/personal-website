@@ -18,7 +18,7 @@ type Props = {
 
 const Header = ({ socials }: Props) => {
   return (
-    <header className="sticky top-0 z-20 flex flex-row justify-between max-w-7xl px-10 py-3 mx-auto items-center">
+    <header className="sticky wideShort:static top-0 z-20 flex flex-row justify-between max-w-7xl px-10 py-3 mx-auto items-center wideShort:snap-center">
       <div>
         <Link href="#hero">
           <HeroButton />

@@ -36,16 +36,17 @@ export default function Home({ pageInfo, socials, skills, projects }: Props) {
         <title>Gorkem Gocer</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+
       {/* Header */}
       <Header socials={socials} />
 
       {/* Hero */}
-      <section id="hero" className="snap-center ">
+      <section id="hero" className="snap-start">
         <Hero pageInfo={pageInfo} />
       </section>
 
       {/* About */}
-      <section id="about" className="snap-center ">
+      <section id="about" className=" snap-center ">
         <About image={pageInfo?.profileImage} about={pageInfo?.about} />
       </section>
 

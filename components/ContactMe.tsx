@@ -53,10 +53,10 @@ const ContactMe = ({ contactAddress, contactEmail }: Props) => {
       transition={{ duration: 1.75 }}
       className="h-screen flex flex-col md:flex-row max-w-7xl px-10 justify-center items-center mx-auto relative overflow-hidden"
     >
-      <h3 className="absolute top-24 uppercase tracking-[14px] text-slate-200 md:text-2xl ">
+      <h3 className="absolute top-24 uppercase tracking-[12px] ml-[12px] hidden tall:inline text-slate-200 md:text-2xl">
         Contact me
       </h3>
-      <div className="flex flex-col w-full md:items-center md:flex-row text-center gap-10 text-slate-200 md:text-xl mt-10">
+      <div className="flex flex-col w-full md:items-center md:flex-row text-center gap-10 text-slate-200 md:text-xl mt-10 wideShort:mt-0">
         <motion.div
           initial={{ opacity: 0, x: -100 }}
           whileInView={{ opacity: 1, x: 0 }}
@@ -84,10 +84,10 @@ const ContactMe = ({ contactAddress, contactEmail }: Props) => {
             </span>
           </div>
         </motion.div>
-        <div className="border border-gray-800 p-4 md:p-14 md:pb-4 rounded-b-xl w-full">
+        <div className="border border-gray-800 p-4 md:p-14 md:pb-4 rounded-b-xl w-full wideShort:py-0">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="flex flex-col gap-8 text-left w-full"
+            className="flex flex-col gap-8 wideShort:gap-6 text-left w-full"
           >
             <h1 className="mb-3 md:mb-6 font-semibold text-slate-50 md:text-2xl">
               Send me a Mail <span className="ml-2">🚀 </span>

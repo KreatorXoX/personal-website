@@ -52,21 +52,22 @@ const Carousel = ({ projects }: Props) => {
           <div
             className="absolute lg:hidden
           -bottom-5 sm:bottom-0  left-[50%] transform -translate-x-[50%] -translate-y-24 md:-translate-y-[100%]
+          wideShort:bottom-[35%]
         "
           >
-            <div className="flex items-center gap-4 ">
+            <div className="flex items-center gap-4 wideShort:gap-[25rem] ">
               <button
                 onClick={leftClickHandler}
-                className="font-semibold text-4xl mb-1  text-slate-200"
+                className="font-semibold text-4xl mb-1 wideShort:text-gray-800  text-slate-200"
               >
                 {"<"}
               </button>
-              <h5 className="text-slate-200">
+              <h5 className="text-slate-200 wideShort:hidden">
                 {selectedIdx + 1} of {projects.length}
               </h5>
               <button
                 onClick={rightClickHandler}
-                className="font-semibold text-4xl mb-1  text-slate-200"
+                className="font-semibold text-4xl mb-1 wideShort:text-gray-800 text-slate-200"
               >
                 {">"}
               </button>
